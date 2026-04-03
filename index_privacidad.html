@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Política de Privacidad — Himnario Universal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink:        #1a1209;
+      --ink-soft:   #4a3f30;
+      --ink-muted:  #8a7d6a;
+      --gold:       #b8860b;
+      --gold-light: #d4a843;
+      --gold-pale:  #f5eed8;
+      --cream:      #faf7f0;
+      --cream-dark: #f0ead8;
+      --line:       #d8cdb8;
+      --white:      #ffffff;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 16px;
+      line-height: 1.8;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 10% 0%, rgba(184,134,11,0.07) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 80% at 90% 100%, rgba(184,134,11,0.05) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::after {
+      content: '✦';
+      position: fixed;
+      bottom: 2rem;
+      right: 2.5rem;
+      font-size: 1.5rem;
+      color: var(--gold-light);
+      opacity: 0.3;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 2rem 6rem;
+    }
+
+    /* ── Header ── */
+    header {
+      text-align: center;
+      padding: 4rem 0 3rem;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 3rem;
+    }
+
+    .header-ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      color: var(--gold);
+      font-size: 1.1rem;
+      letter-spacing: 0.15em;
+    }
+
+    .header-ornament::before,
+    .header-ornament::after {
+      content: '';
+      height: 1px;
+      width: 60px;
+    }
+    .header-ornament::before { background: linear-gradient(to right, transparent, var(--gold)); }
+    .header-ornament::after  { background: linear-gradient(to left,  transparent, var(--gold)); }
+
+    .app-icon {
+      width: 72px;
+      height: 72px;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 2rem;
+      box-shadow: 0 8px 32px rgba(184,134,11,0.25), 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: var(--ink-muted);
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+
+    .meta-info {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .meta-badge {
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .meta-badge span { color: var(--gold); }
+
+    /* ── Nota legal intro ── */
+    .intro-note {
+      background: var(--cream-dark);
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--gold);
+      border-radius: 4px;
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 3rem;
+      font-size: 0.93rem;
+      color: var(--ink-soft);
+      font-style: italic;
+      line-height: 1.7;
+    }
+
+    /* ── Índice ── */
+    .toc {
+      background: var(--cream-dark);
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--gold);
+      border-radius: 4px;
+      padding: 1.5rem 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .toc-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .toc ol {
+      list-style: none;
+      counter-reset: toc;
+      columns: 2;
+      gap: 0.5rem;
+    }
+
+    @media (max-width: 540px) { .toc ol { columns: 1; } }
+
+    .toc li {
+      counter-increment: toc;
+      margin-bottom: 0.35rem;
+    }
+
+    .toc a {
+      color: var(--ink-soft);
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: color 0.2s;
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+
+    .toc a::before {
+      content: counter(toc, decimal-leading-zero);
+      font-size: 0.72rem;
+      color: var(--gold-light);
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .toc a:hover { color: var(--gold); }
+
+    /* ── Secciones ── */
+    section {
+      margin-bottom: 3rem;
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.5s ease forwards;
+    }
+
+    section:nth-child(1)  { animation-delay: 0.05s; }
+    section:nth-child(2)  { animation-delay: 0.10s; }
+    section:nth-child(3)  { animation-delay: 0.15s; }
+    section:nth-child(4)  { animation-delay: 0.20s; }
+    section:nth-child(5)  { animation-delay: 0.25s; }
+    section:nth-child(6)  { animation-delay: 0.30s; }
+    section:nth-child(7)  { animation-delay: 0.35s; }
+    section:nth-child(8)  { animation-delay: 0.40s; }
+    section:nth-child(9)  { animation-delay: 0.45s; }
+    section:nth-child(10) { animation-delay: 0.50s; }
+    section:nth-child(11) { animation-delay: 0.55s; }
+    section:nth-child(12) { animation-delay: 0.60s; }
+    section:nth-child(13) { animation-delay: 0.65s; }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+
+    h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink-soft);
+      margin: 1.2rem 0 0.5rem;
+    }
+
+    p {
+      color: var(--ink-soft);
+      margin-bottom: 1rem;
+      font-size: 0.97rem;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0.5rem 0 1rem 0;
+    }
+
+    ul li {
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+      padding: 0.35rem 0 0.35rem 1.6rem;
+      position: relative;
+      border-bottom: 1px solid rgba(216,205,184,0.4);
+    }
+
+    ul li:last-child { border-bottom: none; }
+
+    ul li::before {
+      content: '◆';
+      position: absolute;
+      left: 0;
+      color: var(--gold-light);
+      font-size: 0.5rem;
+      top: 0.65rem;
+    }
+
+    strong { color: var(--ink); font-weight: 600; }
+
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .highlight-box {
+      background: var(--gold-pale);
+      border: 1px solid rgba(184,134,11,0.2);
+      border-left: 3px solid var(--gold);
+      border-radius: 4px;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+      font-size: 0.93rem;
+      color: var(--ink-soft);
+      font-style: italic;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--line);
+      padding-top: 2.5rem;
+      text-align: center;
+    }
+
+    .footer-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      color: var(--gold-light);
+      margin-bottom: 1.5rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.3em;
+    }
+
+    .footer-divider::before,
+    .footer-divider::after {
+      content: '';
+      height: 1px;
+      width: 80px;
+      background: var(--line);
+    }
+
+    .contact-card {
+      display: inline-block;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 1.2rem 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    }
+
+    .contact-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+    }
+
+    .contact-tel {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .contact-loc {
+      font-size: 0.85rem;
+      color: var(--ink-muted);
+      margin-top: 0.2rem;
+      font-style: italic;
+    }
+
+    .copyright {
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+      letter-spacing: 0.05em;
+    }
+
+    .copyright strong { color: var(--ink-soft); font-weight: 600; }
+
+    .nav-link {
+      display: inline-block;
+      margin-bottom: 2rem;
+      font-size: 0.85rem;
+      color: var(--gold);
+      text-decoration: none;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 0.4rem 1rem;
+      transition: background 0.2s;
+    }
+    .nav-link:hover { background: var(--cream-dark); text-decoration: none; }
+
+    @media (max-width: 600px) {
+      .wrapper { padding: 0 1.25rem 5rem; }
+      header { padding: 2.5rem 0 2rem; }
+      .meta-info { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- ── Header ── -->
+  <header>
+    <div class="header-ornament">✦ &nbsp; Iglesia Universal &nbsp; ✦</div>
+    <div class="app-icon">📖</div>
+    <h1>Política de Privacidad</h1>
+    <p class="subtitle">Himnario Universal — Aplicación Móvil</p>
+    <div class="meta-info">
+      <div class="meta-badge"><span>✦</span> Versión 1.0</div>
+      <div class="meta-badge"><span>✦</span> Enero 2026</div>
+      <div class="meta-badge"><span>✦</span> Jojutla, Morelos, México</div>
+    </div>
+  </header>
+
+  <!-- ── Link a T&C ── -->
+  <div style="text-align:center; margin-bottom: 1.5rem;">
+    <a class="nav-link" href="../">← Ver Términos y Condiciones</a>
+  </div>
+
+  <!-- ── Nota introductoria ── -->
+  <div class="intro-note">
+    Al instalar o utilizar la aplicación Himnario Universal, el usuario acepta los términos descritos en esta Política de Privacidad. Esta política cumple con la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP) de México y con las políticas de privacidad de Google Play Store.
+  </div>
+
+  <!-- ── Índice ── -->
+  <nav class="toc" aria-label="Índice de contenido">
+    <div class="toc-title">Contenido</div>
+    <ol>
+      <li><a href="#s1">Introducción</a></li>
+      <li><a href="#s2">Responsable del Tratamiento</a></li>
+      <li><a href="#s3">Datos Recopilados</a></li>
+      <li><a href="#s4">Uso de Inteligencia Artificial</a></li>
+      <li><a href="#s5">Finalidad del Tratamiento</a></li>
+      <li><a href="#s6">Retención y Eliminación</a></li>
+      <li><a href="#s7">Compartición con Terceros</a></li>
+      <li><a href="#s8">Seguridad</a></li>
+      <li><a href="#s9">Contenido del Himnario</a></li>
+      <li><a href="#s10">Menores de Edad</a></li>
+      <li><a href="#s11">Derechos del Usuario</a></li>
+      <li><a href="#s12">Cambios a esta Política</a></li>
+      <li><a href="#s13">Contacto</a></li>
+    </ol>
+  </nav>
+
+  <!-- ── 1. Introducción ── -->
+  <section id="s1">
+    <div class="section-header">
+      <span class="section-number">01</span>
+      <h2>Introducción</h2>
+    </div>
+    <p>La presente Política de Privacidad describe cómo la aplicación móvil <strong>Himnario Universal</strong> (en adelante, "la App"), desarrollada para uso de la comunidad de la Iglesia Universal, trata la información de sus usuarios.</p>
+    <p>Al instalar o utilizar la App, el usuario acepta los términos descritos en este documento.</p>
+  </section>
+
+  <!-- ── 2. Responsable ── -->
+  <section id="s2">
+    <div class="section-header">
+      <span class="section-number">02</span>
+      <h2>Responsable del Tratamiento</h2>
+    </div>
+    <p>La App es desarrollada y mantenida por el <strong>equipo de desarrollo de Himnario Universal</strong>. Para cualquier consulta relacionada con privacidad puede contactarnos a través de:</p>
+    <ul>
+      <li>Teléfono: <strong>+52 734 155 3474</strong></li>
+      <li>Ubicación: Jojutla, Morelos, México</li>
+    </ul>
+  </section>
+
+  <!-- ── 3. Datos Recopilados ── -->
+  <section id="s3">
+    <div class="section-header">
+      <span class="section-number">03</span>
+      <h2>Datos Recopilados</h2>
+    </div>
+
+    <h3>3.1 Datos almacenados únicamente en el dispositivo</h3>
+    <p>La App almacena la siguiente información de forma local, sin transmitirla a ningún servidor externo:</p>
+    <ul>
+      <li>Himnos marcados como favoritos.</li>
+      <li>Notas personales asociadas a himnos.</li>
+      <li>Preferencia de modo oscuro/claro.</li>
+      <li>Aceptación de los Términos y Condiciones.</li>
+      <li>Historial de conversaciones con el Asistente Eclesiástico (SQLite en dispositivos nativos; almacenamiento local del navegador en la versión web).</li>
+      <li>Contador de mensajes diarios del Asistente.</li>
+    </ul>
+
+    <h3>3.2 Datos transmitidos al servidor (Asistente Eclesiástico)</h3>
+    <p>La funcionalidad del Asistente Eclesiástico requiere enviar al servidor el texto de los mensajes escritos en el chat. Esta transmisión se rige por lo siguiente:</p>
+    <ul>
+      <li>El texto se envía mediante conexión cifrada (<strong>HTTPS</strong>).</li>
+      <li>Se transmite un identificador de hilo de conversación (UUID) generado aleatoriamente en el dispositivo, sin relación con ningún dato personal del usuario.</li>
+      <li>Los mensajes <strong>NO</strong> se vinculan a ninguna identidad, nombre, correo electrónico, número de teléfono ni dato personal identificable.</li>
+      <li>La App <strong>NO</strong> recopila información biométrica, de ubicación, de contactos ni de ninguna otra fuente del dispositivo.</li>
+    </ul>
+
+    <h3>3.3 Datos que NO se recopilan</h3>
+    <ul>
+      <li>Nombre, correo electrónico, número de teléfono u otro dato de identidad.</li>
+      <li>Ubicación geográfica.</li>
+      <li>Contactos del dispositivo.</li>
+      <li>Fotos, cámara o micrófono.</li>
+      <li>Información de pago.</li>
+      <li>Datos de uso o analíticos vinculados a la identidad del usuario.</li>
+    </ul>
+  </section>
+
+  <!-- ── 4. IA ── -->
+  <section id="s4">
+    <div class="section-header">
+      <span class="section-number">04</span>
+      <h2>Uso de Inteligencia Artificial Generativa</h2>
+    </div>
+    <p>El Asistente Eclesiástico es una funcionalidad basada en inteligencia artificial generativa. Su funcionamiento implica:</p>
+    <ul>
+      <li>El texto ingresado por el usuario es enviado a un servidor backend alojado en Railway.</li>
+      <li>El backend procesa la consulta utilizando modelos de lenguaje de OpenAI con acceso a un catálogo de himnos mediante búsqueda vectorial.</li>
+      <li>Las respuestas son generadas automáticamente y devueltas al dispositivo del usuario en tiempo real.</li>
+      <li>No se garantiza que las respuestas sean completamente exactas. El usuario debe verificar la información en el himnario físico oficial.</li>
+      <li>El uso del Asistente está limitado a <strong>10 consultas por día</strong>.</li>
+    </ul>
+    <div class="highlight-box">
+      El procesamiento de los mensajes por parte de OpenAI está sujeto a su propia Política de Privacidad, disponible en <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener">openai.com/policies/privacy-policy</a>.
+    </div>
+  </section>
+
+  <!-- ── 5. Finalidad ── -->
+  <section id="s5">
+    <div class="section-header">
+      <span class="section-number">05</span>
+      <h2>Finalidad del Tratamiento</h2>
+    </div>
+    <p>El único propósito del procesamiento de los mensajes del chat es generar respuestas de asistencia sobre el contenido del himnario (búsqueda por tema, ocasión o referencia bíblica). Estos datos <strong>no</strong> se utilizan para:</p>
+    <ul>
+      <li>Publicidad o marketing.</li>
+      <li>Elaboración de perfiles de usuario.</li>
+      <li>Venta o cesión a terceros.</li>
+      <li>Ningún otro fin que no sea la funcionalidad descrita.</li>
+    </ul>
+  </section>
+
+  <!-- ── 6. Retención ── -->
+  <section id="s6">
+    <div class="section-header">
+      <span class="section-number">06</span>
+      <h2>Retención y Eliminación de Datos</h2>
+    </div>
+    <p>Los datos almacenados localmente (favoritos, notas, historial de chat) permanecen en el dispositivo hasta que el usuario los elimina manualmente desde la App, o hasta que la App es desinstalada.</p>
+    <p>Los mensajes transmitidos al servidor para el procesamiento del Asistente Eclesiástico no son almacenados de forma permanente más allá del tiempo necesario para generar la respuesta.</p>
+  </section>
+
+  <!-- ── 7. Terceros ── -->
+  <section id="s7">
+    <div class="section-header">
+      <span class="section-number">07</span>
+      <h2>Compartición de Datos con Terceros</h2>
+    </div>
+    <p>La App <strong>no vende, alquila ni comercializa</strong> ningún dato de usuario. El único flujo de datos hacia un tercero es el procesamiento de los mensajes del Asistente Eclesiástico a través de la API de OpenAI, exclusivamente con el propósito de generar respuestas.</p>
+  </section>
+
+  <!-- ── 8. Seguridad ── -->
+  <section id="s8">
+    <div class="section-header">
+      <span class="section-number">08</span>
+      <h2>Seguridad</h2>
+    </div>
+    <p>La App implementa las siguientes medidas de seguridad:</p>
+    <ul>
+      <li>Todas las comunicaciones con el servidor se realizan mediante <strong>HTTPS (TLS)</strong>.</li>
+      <li>El acceso al servidor backend está protegido mediante autenticación por clave de API.</li>
+      <li>Los datos locales se almacenan en el área de almacenamiento privada de la App en el dispositivo, inaccesible a otras aplicaciones.</li>
+    </ul>
+  </section>
+
+  <!-- ── 9. Contenido ── -->
+  <section id="s9">
+    <div class="section-header">
+      <span class="section-number">09</span>
+      <h2>Contenido del Himnario</h2>
+    </div>
+    <p>Las letras e himnos incluidos en la App son <strong>obras de dominio público</strong>. Al haber expirado el período de protección de derechos de autor establecido por la ley, cualquier persona puede utilizarlas libremente. La App no reclama ni detenta propiedad alguna sobre dichas obras.</p>
+    <p>Las <strong>grabaciones de audio</strong> disponibles en la App son producciones originales realizadas íntegramente por el equipo de desarrollo de Himnario Universal, quien es el titular exclusivo de los derechos sobre dichas grabaciones.</p>
+    <div class="highlight-box">
+      Queda prohibida la reproducción, descarga o distribución de los audios fuera del contexto de la App sin autorización expresa del equipo de desarrollo.
+    </div>
+  </section>
+
+  <!-- ── 10. Menores ── -->
+  <section id="s10">
+    <div class="section-header">
+      <span class="section-number">10</span>
+      <h2>Menores de Edad</h2>
+    </div>
+    <p>La App no está dirigida específicamente a menores de 13 años y no recopila intencionadamente datos personales de menores. Dado que la App no recopila datos de identidad, no es posible identificar si un usuario es menor de edad. El uso por parte de menores queda bajo la responsabilidad de los padres o tutores.</p>
+  </section>
+
+  <!-- ── 11. Derechos ── -->
+  <section id="s11">
+    <div class="section-header">
+      <span class="section-number">11</span>
+      <h2>Derechos del Usuario</h2>
+    </div>
+    <p>Dado que la App no recopila datos personales identificables, los derechos ARCO (Acceso, Rectificación, Cancelación y Oposición) previstos por la LFPDPPP de México no aplican en la práctica. No obstante, el usuario puede:</p>
+    <ul>
+      <li>Eliminar todos sus datos locales desinstalando la App.</li>
+      <li>Borrar el historial de conversaciones desde la interfaz del Asistente Eclesiástico.</li>
+      <li>Eliminar sus favoritos y notas desde la propia App.</li>
+    </ul>
+  </section>
+
+  <!-- ── 12. Cambios ── -->
+  <section id="s12">
+    <div class="section-header">
+      <span class="section-number">12</span>
+      <h2>Cambios a esta Política</h2>
+    </div>
+    <p>Esta Política de Privacidad puede ser actualizada periódicamente. Cuando se realicen cambios, se notificará al usuario mediante la pantalla de aceptación de Términos y Condiciones en la próxima apertura de la App. La fecha de vigencia de la versión actual se indica en el encabezado de este documento.</p>
+  </section>
+
+  <!-- ── 13. Contacto ── -->
+  <section id="s13">
+    <div class="section-header">
+      <span class="section-number">13</span>
+      <h2>Contacto</h2>
+    </div>
+    <p>Para cualquier pregunta, comentario o solicitud relacionada con esta Política de Privacidad, puede contactarnos:</p>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <div class="footer-divider">✦ ✦ ✦</div>
+    <div class="contact-card">
+      <div class="contact-label">Equipo de Desarrollo — Himnario Universal</div>
+      <div class="contact-tel">+52 734 155 3474</div>
+      <div class="contact-loc">Jojutla, Morelos, México</div>
+    </div>
+    <p class="copyright">
+      &copy; 2026 <strong>Equipo de Desarrollo de Himnario Universal</strong><br/>
+      Jojutla, Morelos, México &nbsp;·&nbsp; Versión 1.0 &nbsp;·&nbsp; Enero 2026
+    </p>
+  </footer>
+
+</div>
+</body>
+</html>
